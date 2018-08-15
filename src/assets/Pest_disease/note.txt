@@ -1,0 +1,23 @@
+-r (rice) 水稻
+-w (wheat	) 小麦
+-c (corn) 玉米
+
+sb (shealth blight) 纹枯病
+ph (planthopper) 飞虱病
+cm (cnaphalocrocis medinalis) 纵卷叶螟
+a (aphid) 蚜虫
+s (slime) 黏虫
+r (rust) 锈病
+sr (stripe rust) 条锈病
+cb (corn borer) 玉米螟
+bw (bollworm) 棉铃虫
+gd (gibberellic disease）赤霉素病
+pm (powdery mildew）白粉病
+lsd (large spot disease) 大斑病
+
+regional 局部地区
+square 种植面积
+gt (growth trend) 长势
+
+后缀 p 表预测结果
+后缀 m 表检测结果

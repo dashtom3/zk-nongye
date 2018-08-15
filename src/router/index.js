@@ -4,6 +4,7 @@ import Vuex from 'vuex'
 import Router from 'vue-router'
 import Main from '@/components/Main'
 import Topic from '@/components/Topic'
+import pest_topic from '@/components/pest_topic'
 
 Vue.use(Router)
 Vue.use(Vuex)
@@ -19,6 +20,11 @@ export default new Router({
       path: '/Topic/:id',
       name: 'Topic',
       component: Topic
+    },
+    {
+      path: '/pest_topic/:id',
+      name: 'pest_topic',
+      component: pest_topic
     }
   ]
 })

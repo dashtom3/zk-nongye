@@ -66,16 +66,16 @@ export default {
     scroll : function(event){
       // console.log(event.target);
       if(event.wheelDelta==150&&this.size<=1){
-        this.size+=0.08;
+        this.size+=0.1;
       }else if(event.wheelDelta==150&&this.size>1){
-        this.currentPageHeight +=20;
+        this.currentPageHeight +=40;
       }else if(event.wheelDelta==-150&&this.currentPageHeight<=window.pictureHeight){
-        this.size-=0.08;
+        this.size-=0.1;
         if(this.size<=0.2){
           this.size=0.2;
         }
       }else if(event.wheelDelta==-150&&this.currentPageHeight>window.pictureHeight&&this.size>1){
-        this.currentPageHeight -=20;
+        this.currentPageHeight -=40;
       }
     },
     register : function(event){

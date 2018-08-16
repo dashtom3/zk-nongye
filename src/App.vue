@@ -49,6 +49,7 @@ body{
   padding-left: 10px;
   position: fixed;
   top: 0;
+  z-index: 2;
   /* padding-top: 20px; */
 }
 .title {

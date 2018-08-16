@@ -1,4 +1,5 @@
 export default {
+    topic : '2018年5月安徽市小麦病虫害',
     data : [
       {id : 1,name : '小麦蚜虫遥感监测图',imgSrc : require('./../assets/Pest_disease/2018_5_w/am.png')},
       {id : 2,name : '小麦赤霉病遥感监测图',imgSrc : require('./../assets/Pest_disease/2018_5_w/gdm.png')},

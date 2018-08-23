@@ -64,7 +64,7 @@ export default {
       this.currentPictureSrc = src;
     },
     scroll : function(event){
-      // console.log(event.target);
+      console.log(event);
       if(event.wheelDelta==150&&this.size<=1){
         this.size+=0.1;
       }else if(event.wheelDelta==150&&this.size>1){

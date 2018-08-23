@@ -52,7 +52,12 @@ export default {
                     {id:'20',name:'2018年4月安徽市小麦病虫害',img:require('./../assets/Pest_disease/2018_4_w/am.png'),time:'2018-4'},
                     {id:'21',name:'2018年5月安徽市小麦病虫害',img:require('./../assets/Pest_disease/2018_5_w/am.png'),time:'2018-5'}
                   ]
-
+          ,'农业面源污染':[
+                          {id:"22",name:'2017年14期土壤墒情简报',img:require('./../assets/7.jpg'),time:'2017-04-12'},
+                          {id:"23",name:'2017年42期土壤墒情简报',img:require('./../assets/7.jpg'),time:'2017-11-10'},
+                          {id:"24",name:'2017年47期土壤墒情简报',img:require('./../assets/7.jpg'),time:'2017-12-18'},
+                          {id:"25",name:'2017年48期土壤墒情简报',img:require('./../assets/7.jpg'),time:'2017-12-25'}
+                         ]
       },
       topic:null,
       data:null,
@@ -69,7 +74,8 @@ export default {
     },
     clickTopic(item){
       var target = '';
-      item.id <= 5 ? target = 'Topic' : target = 'pest_topic';
+      item.id <= 6 ? target = 'Topic' : target = 'pest_topic';
+      if(item.id == 22 || item.id == 23 || item.id == 24 || item.id == 25 ) target = 'Soil';
       let routeData = this.$router.resolve({name:target,params:{id:item.id}});
       window.open(routeData.href, '_blank');
       // this.$router.push()

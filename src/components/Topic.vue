@@ -6,12 +6,14 @@
 
 <script>
 import 'echarts/map/js/china.js';
+
 import map1 from './map1.js'
 import map2 from './map2.js'
 import map3 from './map3.js'
 import map4 from './map4.js'
 import map5 from './map5.js'
 import map6 from './map6.js'
+
 // require('echarts/extension/bmap/bmap.js');
 export default {
   name: 'Topic',
@@ -23,19 +25,17 @@ export default {
     }
   },
   mounted(){
-    this.option = this.options[this.$route.params.id]
+    this.option = this.options[this.$route.params.id];
     this.drawLine();
   },
   methods:{
     drawLine(){
-
       // console.log(option)
         // option =
         // 基于准备好的dom，初始化echarts实例
         let myChart = this.$echarts.init(document.getElementById('myChart'))
         this.option.showView(myChart)
         // myChart.setOption(this.option)
-
     }
   }
 }
@@ -56,7 +56,5 @@ export default {
   width: 100%;
   height: 100%;
   /* top:60px; */
-
-
 }
 </style>

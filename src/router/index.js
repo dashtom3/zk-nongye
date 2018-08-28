@@ -3,9 +3,9 @@ import Vuex from 'vuex'
 
 import Router from 'vue-router'
 import Main from '@/components/Main'
-import Topic from '@/components/Topic'
-import pest_topic from '@/components/pest_topic'
-import Soil from '@/components/Soil'
+import Weather from '@/components/weather/Weather'
+import Pest from '@/components/pest/Pest'
+import Soil from '@/components/soil/Soil'
 
 Vue.use(Router)
 Vue.use(Vuex)
@@ -18,14 +18,14 @@ export default new Router({
       component: Main
     },
     {
-      path: '/Topic/:id',
-      name: 'Topic',
-      component: Topic
+      path: '/Weather/:id',
+      name: 'Weather',
+      component: Weather
     },
     {
-      path: '/pest_topic/:id',
-      name: 'pest_topic',
-      component: pest_topic
+      path: '/Pest/:id',
+      name: 'Pest',
+      component: Pest
     },{
       path: '/Soil/:id',
       name: 'Soil',

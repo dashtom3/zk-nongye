@@ -23,17 +23,17 @@
 </template>
 
 <script>
-
 export default {
 
   name: 'HelloWorld',
   data () {
     return {
       msg: 'Welcome to Your Vue.js App',
-      title:["农业气象数据","农业遥感数据","农业交易数据","农业产品质量","农业面源污染","农业实验基地","病虫害防治","农产品认证"],
-      allTopics:{'农业气象数据':[{id:'0',name:'全国重要城市空气质量',img:require('./../assets/1.jpg'),time:'2017-12-31'},
-        {id:'1',name:'全国空气质量PM2.5',img:require('./../assets/2.jpg'),time:'2018-01-01'},{id:"2",name:'雨量流量关系图',img:require('./../assets/3.jpg'),time:'2008-05-04'},
-        {id:"3",name:'雨量流量关系图2',img:require('./../assets/4.jpg'),time:'2017-02-02'}
+      title:["农业气象数据","农业交易数据","农业产品质量","农业面源污染","农业实验基地","病虫害防治","农产品认证"],
+      allTopics:{'农业气象数据':[{id:'0',name:'江浙沪皖每日城市天气数据',img:require('./../assets/1.jpg'),time: this.$dtime(new Date().getTime()).format('YYYY-MM-DD')},
+        {id:'1',name:'江浙沪皖每日城市PM值',img:require('./../assets/2.jpg'),time:  this.$dtime(new Date().getTime()).format('YYYY-MM-DD')},
+        // {id:"2",name:'雨量流量关系图',img:require('./../assets/3.jpg'),time:'2008-05-04'},
+        // {id:"3",name:'雨量流量关系图2',img:require('./../assets/4.jpg'),time:'2017-02-02'}
       ],'农业遥感数据':[{id:"4",name:'玫瑰饼图',img:require('./../assets/5.jpg'),time:'2017-02-03'},{id:"5",name:'收入支出图',img:require('./../assets/6.jpg'),time:'2017-02-04'}]
       ,'病虫害防治':[{id:'6',name:'2015年8月安徽市水稻病虫害',img:require('./../assets/Pest_disease/2015_8_r/distribute.png'),time:'2015-8'},
                     {id:'7',name:'2015年9月安徽市水稻病虫害',img:require('./../assets/Pest_disease/2015_9_r/distribute.png'),time:'2015-9'},
@@ -66,6 +66,7 @@ export default {
   created(){
     this.topic = this.title[0]
     this.data = this.allTopics[this.topic]
+
   },
   methods:{
     clickDrawer(item){
@@ -74,7 +75,7 @@ export default {
     },
     clickTopic(item){
       var target = '';
-      item.id <= 6 ? target = 'Topic' : target = 'pest_topic';
+      item.id <= 6 ? target = 'Weather' : target = 'Pest';
       if(item.id == 22 || item.id == 23 || item.id == 24 || item.id == 25 ) target = 'Soil';
       let routeData = this.$router.resolve({name:target,params:{id:item.id}});
       window.open(routeData.href, '_blank');

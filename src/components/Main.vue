@@ -23,7 +23,6 @@
 </template>
 
 <script>
-
 export default {
 
   name: 'HelloWorld',
@@ -66,6 +65,7 @@ export default {
   created(){
     this.topic = this.title[0]
     this.data = this.allTopics[this.topic]
+
   },
   methods:{
     clickDrawer(item){
@@ -74,7 +74,8 @@ export default {
     },
     clickTopic(item){
       var target = '';
-      item.id < 6 ? target = 'Topic' : target = 'pest_topic';
+      item.id <= 6 ? target = 'Weather' : target = 'Pest';
+
       if(item.id == 22 || item.id == 23 || item.id == 24 || item.id == 25 ) target = 'Soil';
       let routeData = this.$router.resolve({name:target,params:{id:item.id}});
       window.open(routeData.href, '_blank');

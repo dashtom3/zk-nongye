@@ -64,17 +64,19 @@ export default {
       this.currentPictureSrc = src;
     },
     scroll : function(event){
-      console.log(event);
-      if(event.wheelDelta==150&&this.size<=1){
+      var scrollTop = null;
+      (event.wheelDelta==120||event.wheelDelta==150) ? scrollTop = true:scrollTop = false;
+      console.log(scrollTop);
+      if(scrollTop==true&&this.size<=1){
         this.size+=0.1;
-      }else if(event.wheelDelta==150&&this.size>1){
+      }else if(scrollTop==true&&this.size>1){
         this.currentPageHeight +=40;
-      }else if(event.wheelDelta==-150&&this.currentPageHeight<=window.pictureHeight){
+      }else if(scrollTop==false&&this.currentPageHeight<=window.pictureHeight){
         this.size-=0.1;
         if(this.size<=0.2){
           this.size=0.2;
         }
-      }else if(event.wheelDelta==-150&&this.currentPageHeight>window.pictureHeight&&this.size>1){
+      }else if(scrollTop==false&&this.currentPageHeight>window.pictureHeight&&this.size>1){
         this.currentPageHeight -=40;
       }
     },
@@ -83,7 +85,7 @@ export default {
       event.target.style.top = '0px';
     },
     drag : function(event){
-      console.log(event.target);
+      // console.log(event.target);
       var that = event.target,
           startMouseX = event.clientX,
           startMouseY = event.clientY,
@@ -96,7 +98,7 @@ export default {
 
         that.style.left = startLeft + (event_.clientX - startMouseX)+'px';
         that.style.top = startTop + (event_.clientY - startMouseY)+'px';
-        console.log(that.style.left);
+        // console.log(that.style.left);
       }
       document.onmouseup = function(_event){
         this.onmousemove = null;

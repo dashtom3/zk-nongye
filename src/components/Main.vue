@@ -74,7 +74,7 @@ export default {
     },
     clickTopic(item){
       var target = '';
-      item.id <= 6 ? target = 'Topic' : target = 'pest_topic';
+      item.id < 6 ? target = 'Topic' : target = 'pest_topic';
       if(item.id == 22 || item.id == 23 || item.id == 24 || item.id == 25 ) target = 'Soil';
       let routeData = this.$router.resolve({name:target,params:{id:item.id}});
       window.open(routeData.href, '_blank');

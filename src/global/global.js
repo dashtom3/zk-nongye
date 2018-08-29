@@ -1,7 +1,6 @@
 import axios from 'axios'
 export default{
   baseUrl: 'http://localhost:8001/data/',
-  intervalp:null,
   // baseUrl: 'http://localhost:6784/',
   success (obj, msg, url) {
     obj.$message({

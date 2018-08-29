@@ -10,9 +10,9 @@ import 'echarts/map/js/china.js';
 import map1 from './map1.js'
 import map2 from './map2.js'
 import map3 from './map3.js'
-import map4 from './map4.js'
-import map5 from './map5.js'
-import map6 from './map6.js'
+// import map4 from './map4.js'
+// import map5 from './map5.js'
+// import map6 from './map6.js'
 
 // require('echarts/extension/bmap/bmap.js');
 export default {
@@ -21,7 +21,7 @@ export default {
     return {
       msg: 'Welcome to Your Vue.js App',
       option:null,
-      options:[map1,map2,map3,map4,map5,map6]
+      options:[map1,map2,map3]
     }
   },
   mounted(){
@@ -34,7 +34,7 @@ export default {
         // option =
         // 基于准备好的dom，初始化echarts实例
         let myChart = this.$echarts.init(document.getElementById('myChart'))
-        this.option.showView(myChart)
+        this.option.showView(myChart,this)
         // myChart.setOption(this.option)
     }
   }

@@ -3,7 +3,7 @@
     <div id="left-chart-nav">
         <ul>
           <li v-for="item in title" v-bind:class="{active: item == topic}" @click="clickDrawer(item)">
-            {{item}}
+            {{item.name}}
           </li>
         </ul>
     </div>
@@ -30,7 +30,7 @@ export default {
     return {
       msg: 'Welcome to Your Vue.js App',
       // title:["农业气象数据","农业交易数据","农业产品质量","农业面源污染","农业实验基地","病虫害防治","农产品认证"],
-      title:["农业气象数据","农业交易数据","农业面源污染","病虫害防治"],
+      title:[{name:"农业气象数据",target:"Weather"},{name:"农业交易数据",target:"Price"},{name:"农业面源污染",target:"Soil"},{name:"病虫害防治",target:"Pest"}],
       allTopics:{'农业气象数据':[{id:'0',name:'江浙沪皖每日城市天气数据',img:require('./../assets/1.jpg'),time: this.$dtime(new Date().getTime()).format('YYYY-MM-DD')},
         {id:'1',name:'江浙沪皖每日城市PM2.5数据',img:require('./../assets/2.jpg'),time:  this.$dtime(new Date().getTime()).format('YYYY-MM-DD')},
         {id:"2",name:'江浙沪皖每日城市PM10数据',img:require('./../assets/2.jpg'),time:this.$dtime(new Date().getTime()).format('YYYY-MM-DD')},
@@ -94,25 +94,16 @@ export default {
   },
   created(){
     this.topic = this.title[0]
-    this.data = this.allTopics[this.topic]
+    this.data = this.allTopics[this.topic.name]
   },
   methods:{
     clickDrawer(item){
       this.topic = item
-      this.data = this.allTopics[this.topic]
+      this.data = this.allTopics[this.topic.name]
     },
     clickTopic(item){
-      var target = '';
-      if(item.id<=5){
-        target = 'wheather';
-      }else if(item.id<=21){
-        target = 'Pest';
-      }else if(item.id<=25){
-        target = 'Soil';
-      }else if(item.id<=52){
-        target = 'Price';
-      }
-      let routeData = this.$router.resolve({name:target,params:{id:item.id}});
+      console.log(this.topic.name)
+      let routeData = this.$router.resolve({name:this.topic.target,params:{id:item.id}});
       window.open(routeData.href, '_blank');
       // this.$router.push()
     }

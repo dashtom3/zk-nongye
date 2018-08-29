@@ -6,6 +6,7 @@ import Main from '@/components/Main'
 import Weather from '@/components/weather/Weather'
 import Pest from '@/components/pest/Pest'
 import Soil from '@/components/soil/Soil'
+import Price from '@/components/price/Price'
 
 Vue.use(Router)
 Vue.use(Vuex)
@@ -30,6 +31,10 @@ export default new Router({
       path: '/Soil/:id',
       name: 'Soil',
       component: Soil
+    },{
+      path: '/Price/:id',
+      name: 'Price',
+      component: Price
     }
   ]
 })

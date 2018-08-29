@@ -57,7 +57,35 @@ export default {
                           {id:"23",name:'2017年42期土壤墒情简报',img:require('./../assets/7.jpg'),time:'2017-11-10'},
                           {id:"24",name:'2017年47期土壤墒情简报',img:require('./../assets/7.jpg'),time:'2017-12-18'},
                           {id:"25",name:'2017年48期土壤墒情简报',img:require('./../assets/7.jpg'),time:'2017-12-25'}
-                         ]
+                        ]
+          ,'农业交易数据':[
+                          {id:'26',name:'上海农产品中心批发市场有限公司',img:require('./../assets/8.png'),time:'2018-08-28'},
+                          {id:'27',name:'上海市江桥批发市场',img:require('./../assets/8.png'),time:'2018-08-15'},
+                          {id:'29',name:'浙江嘉兴蔬菜批发交易市场',img:require('./../assets/8.png'),time:'2018-08-28'},
+                          {id:'30',name:'浙江金华农产品批发市场',img:require('./../assets/8.png'),time:'2018-08-28'},
+                          {id:'31',name:'浙江省绍兴市蔬菜果品批发交易市场',img:require('./../assets/8.png'),time:'2018-08-28'},
+                          {id:'32',name:'浙江义乌农贸城',img:require('./../assets/8.png'),time:'2018-08-28'},
+                          {id:'33',name:'浙江宁波市蔬菜副食品批发交易市场',img:require('./../assets/8.png'),time:'2018-08-28'},
+                          {id:'34',name:'浙江省金华农产品批发市场',img:require('./../assets/8.png'),time:'2018-08-28'},
+                          {id:'35',name:'浙江省杭州笕桥蔬菜批发交易市场',img:require('./../assets/8.png'),time:'2018-08-28'},
+                          {id:'36',name:'浙江绍兴蔬菜果品批发交易中心',img:require('./../assets/8.png'),time:'2018-08-28'},
+                          {id:'37',name:'浙江嘉善浙北果蔬菜批发交易',img:require('./../assets/8.png'),time:'2018-08-15'},
+                          {id:'38',name:'浙江嘉兴水果市场',img:require('./../assets/8.png'),time:'2018-08-06'},
+                          {id:'39',name:'江苏无锡天惠超市股份有限公司',img:require('./../assets/8.png'),time:'2018-08-28'},
+                          {id:'40',name:'江苏苏州南环桥农副产品批发市场',img:require('./../assets/8.png'),time:'2018-08-28'},
+                          {id:'41',name:'苏州市南环桥市场发展有限公司',img:require('./../assets/8.png'),time:'2018-08-28'},
+                          {id:'42',name:'无锡朝阳股份有限公司农产品批发市场',img:require('./../assets/8.png'),time:'2018-08-28'},
+                          {id:'43',name:'无锡锡澄果品批发交易市场',img:require('./../assets/8.png'),time:'2018-08-28'},
+                          {id:'44',name:'南京农副产品物流中心',img:require('./../assets/8.png'),time:'2018-08-28'},
+                          {id:'45',name:'江苏无锡朝阳市场',img:require('./../assets/8.png'),time:'2018-08-28'},
+                          {id:'46',name:'江苏徐州七里沟农副产品中心',img:require('./../assets/8.png'),time:'2018-08-28'},
+                          {id:'47',name:'安徽安庆市龙狮桥蔬菜批发市场',img:require('./../assets/8.png'),time:'2018-08-28'},
+                          {id:'48',name:'安徽砀山农产品中心惠丰批发市场',img:require('./../assets/8.png'),time:'2018-08-28'},
+                          {id:'49',name:'安徽亳州蔬菜批发市场',img:require('./../assets/8.png'),time:'2018-08-28'},
+                          {id:'50',name:'安徽濉溪县中瑞农副产品批发市场',img:require('./../assets/8.png'),time:'2018-08-15'},
+                          {id:'51',name:'安徽六安裕安区紫竹林农产品批发市场',img:require('./../assets/8.png'),time:'2018-08-14'},
+                          {id:'52',name:'安徽舒城蔬菜大市场',img:require('./../assets/8.png'),time:'2018-08-12'}
+                        ]
       },
       topic:null,
       data:null,
@@ -66,7 +94,6 @@ export default {
   created(){
     this.topic = this.title[0]
     this.data = this.allTopics[this.topic]
-
   },
   methods:{
     clickDrawer(item){
@@ -75,9 +102,15 @@ export default {
     },
     clickTopic(item){
       var target = '';
-      item.id <= 6 ? target = 'Weather' : target = 'Pest';
-
-      if(item.id == 22 || item.id == 23 || item.id == 24 || item.id == 25 ) target = 'Soil';
+      if(item.id<=5){
+        target = 'wheather';
+      }else if(item.id<=21){
+        target = 'Pest';
+      }else if(item.id<=25){
+        target = 'Soil';
+      }else if(item.id<=52){
+        target = 'Price';
+      }
       let routeData = this.$router.resolve({name:target,params:{id:item.id}});
       window.open(routeData.href, '_blank');
       // this.$router.push()

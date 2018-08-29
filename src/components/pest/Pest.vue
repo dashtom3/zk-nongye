@@ -51,6 +51,7 @@ export default {
     }
   },
   created(){
+    // console.log(this.$route);
     this.option = this.options[0];
     this.introduce = this.option.topic;
     this.currentPicture = this.option.data[0].name;

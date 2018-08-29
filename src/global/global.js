@@ -73,9 +73,12 @@ export default{
                 });
         });
   },
+  prefixInteger(num, length) {
+    return (Array(length).join('0') + num).slice(-length);
+  },
   httpGetWithBaseUrl(self,url,data){
     return new Promise((resolve, reject) => {
-      axios.get(this.baseUrl + url + "?" + this.getHttpData(data)).then((res)=>{
+      axios.get(encodeURI(this.baseUrl + url + "?" + this.getHttpData(data))).then((res)=>{
           if(res.data.status == 1){
             resolve(res.data)
           }else {

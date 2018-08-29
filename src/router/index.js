@@ -32,7 +32,7 @@ export default new Router({
       name: 'Soil',
       component: Soil
     },{
-      path: '/Price/:id',
+      path: '/Price/:id&:name',
       name: 'Price',
       component: Price
     }

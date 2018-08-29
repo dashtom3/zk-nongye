@@ -103,7 +103,7 @@ export default {
     },
     clickTopic(item){
       console.log(this.topic.name)
-      let routeData = this.$router.resolve({name:this.topic.target,params:{id:item.id}});
+      let routeData = this.$router.resolve({name:this.topic.target,params:{id:item.id,name:item.name}});
       window.open(routeData.href, '_blank');
       // this.$router.push()
     }
@@ -171,8 +171,12 @@ export default {
   height: 140px;
 }
 .title {
+  width: 100%;
   color:#101f28;
   font-size: 20px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 .small{
   color:#999;

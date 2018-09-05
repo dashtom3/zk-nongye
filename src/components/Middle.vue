@@ -45,7 +45,9 @@ export default {
                     {id:'18',name:'2017年9月安徽市玉米病虫害',img:require('./../assets/Pest_disease/2017_9_c/lsdm.png'),time:'2017-9'},
                     {id:'19',name:'2018年3月安徽市小麦病虫害',img:require('./../assets/Pest_disease/2018_3_w/am.png'),time:'2018-3'},
                     {id:'20',name:'2018年4月安徽市小麦病虫害',img:require('./../assets/Pest_disease/2018_4_w/am.png'),time:'2018-4'},
-                    {id:'21',name:'2018年5月安徽市小麦病虫害',img:require('./../assets/Pest_disease/2018_5_w/am.png'),time:'2018-5'}
+                    {id:'21',name:'2018年5月安徽市小麦病虫害',img:require('./../assets/Pest_disease/2018_5_w/am.png'),time:'2018-5'},
+                    {id:'22',name:'2018年8月安徽市水稻病虫害',img:require('./../assets/Pest_disease/2018_8_r/square.png'),time:'2018-8'},
+                    {id:'23',name:'2018年8月安徽市玉米病虫害',img:require('./../assets/Pest_disease/2018_8_c/square.png'),time:'2018-8'}
                   ]
           ,'农业面源污染':[
                           {id:"22",name:'2017年14期土壤墒情简报',img:require('./../assets/7.jpg'),time:'2017-04-12'},

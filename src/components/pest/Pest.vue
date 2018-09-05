@@ -36,6 +36,8 @@ import pest_map13 from './pest_map13.js'
 import pest_map14 from './pest_map14.js'
 import pest_map15 from './pest_map15.js'
 import pest_map16 from './pest_map16.js'
+import pest_map17 from './pest_map17.js'
+import pest_map18 from './pest_map18.js'
 
 export default {
   name: 'pest_topic',
@@ -43,7 +45,7 @@ export default {
     return {
       msg: 'Welcome to Your Vue.js App',
       option:null,
-      options:[pest_map1,pest_map2,pest_map3,pest_map4,pest_map5,pest_map6,pest_map7,pest_map8,pest_map9,pest_map10,pest_map11,pest_map12,pest_map13,pest_map14,pest_map15,pest_map16],
+      options:[pest_map1,pest_map2,pest_map3,pest_map4,pest_map5,pest_map6,pest_map7,pest_map8,pest_map9,pest_map10,pest_map11,pest_map12,pest_map13,pest_map14,pest_map15,pest_map16,pest_map17,pest_map18],
       introduce : '',
       currentPicture : '',
       currentPictureSrc : null,

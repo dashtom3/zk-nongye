@@ -84,8 +84,10 @@ setView(myChart){
       });
   }, 0);
 },
-showView(myChart,self){
-    global.httpGetWithBaseUrl(self,'/weather/all',{date:dtime(new Date().getTime()).format('YYYY-MM-DD')}).then(res=>{
+showView(myChart,self,time){
+  // console.log(time)
+  this.option.title[0].text = '江浙沪皖主要城市PM10数据:'+time
+    global.httpGetWithBaseUrl(self,'/weather/all',{date:time}).then(res=>{
       var tempGeoCoordMap = {}
       var tempData = []
       res.data.forEach(item=>{
@@ -112,10 +114,11 @@ option : {
     animationEasingUpdate: 'cubicInOut',
     title: [
         {
-            text: '江浙沪皖主要城市 PM 10 当日数据',
+            text: '',
             left: 'center',
             textStyle: {
-                color: '#fff'
+                color: '#fff',
+                fontSize:16
             }
         },
         {

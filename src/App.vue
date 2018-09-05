@@ -3,7 +3,7 @@
     <div class="header">
       <div class="title-img"><img src="./assets/main/logo.png"></div>
       <span class="title-q">|</span>
-      <span class="title-main">农业生态大数据</span>
+      <span class="title-main" @click="goHome">农业生态大数据</span>
       <span class="time">{{time}}</span>
       <!-- <img src='./assets/1.jpg'> -->
     </div>
@@ -27,6 +27,11 @@ export default {
     setInterval(()=>{
       this.time = this.$global.getDate(new Date())
     },1000)
+  },
+  methods:{
+    goHome(){
+      this.$router.push({name:'Main'})
+    }
   }
 }
 </script>
@@ -67,6 +72,7 @@ body{
   margin-top: 18px;
   font-size: 13px;
   font-weight: bold;
+  cursor: pointer;
 }
 .time {
   color: #333;

@@ -70,7 +70,7 @@ export default {
   },
   methods:{
     drawLine(){
-      console.log(this.option)
+      // console.log(this.option)
       let myChart = this.$echarts.init(document.getElementById('myChart'))
       myChart.setOption(this.option)
     },
@@ -110,7 +110,7 @@ export default {
       for(var i=parseInt(tempDate[2]);i<=parseInt(tempDate2[2]);i++){
         tempRes.push(tempDate[0]+'-'+tempDate[1]+"-"+this.$global.prefixInteger(i,2))
       }
-      console.log(tempRes)
+      // console.log(tempRes)
       this.option.xAxis.data = tempRes
        //this.$dtime(this.$dtime(this.priceArgs.fromDate).fromat('x')+1000*60*60*24).format('YYYY-MM-DD')
     },
@@ -122,7 +122,7 @@ export default {
         }
         tempData[item.name][parseInt(item.date.split('-')[2])]=parseFloat(item.price)
       })
-      console.log(tempData)
+      // console.log(tempData)
       var tempLegend = []
       var tempLegendSelected = {}
       this.data = []
@@ -141,8 +141,8 @@ export default {
         }
         k++
       }
-      console.log(this.data)
-      console.log(tempLegendSelected)
+      // console.log(this.data)
+      // console.log(tempLegendSelected)
       this.option.legend.data = tempLegend
       this.option.legend.selected = tempLegendSelected
       this.option.series = this.data

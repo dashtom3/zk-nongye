@@ -1,14 +1,15 @@
 <template>
   <div class='root'>
-    <div class="left-bar-nav">
-      <ul>
-        <li class="introduce">
-          {{introduce}}
-        </li>
-        <li v-for='item in option.data' v-bind:class="{active : item.name == currentPicture}" v-on:click='clickChoose(item.name,item.imgSrc)' v-bind:style="{'line-height' : (item.name.length>9 ? '26px':'56px')}">
-          {{item.name}}
-        </li>
-      </ul>
+    <div class='chooseArea'>
+      <h3>{{option.topic}}</h3>
+      <el-select v-model="currentPicture" placeholder="请选择" @change='clickChoose()'>
+       <el-option
+         v-for="item in option.data"
+         :key="item.id"
+         :label="item.name"
+         :value="item.id">
+       </el-option>
+     </el-select>
     </div>
     <div class="showArea">
       <div class="picture">
@@ -52,7 +53,7 @@ export default {
   },
   created(){
     // console.log(this.$route);
-    this.option = this.options[0];
+    this.option = this.options[this.$route.params.id-6];
     this.introduce = this.option.topic;
     this.currentPicture = this.option.data[0].name;
     this.currentPictureSrc = this.option.data[0].imgSrc;
@@ -60,9 +61,10 @@ export default {
     this.currentPageHeight = document.documentElement.clientHeight-60;
   },
   methods : {
-    clickChoose : function(name,src){
-      this.currentPicture = name;
-      this.currentPictureSrc = src;
+    clickChoose(val){
+      // this.currentPicture = name;
+      console.log(this.option.)
+      // this.currentPictureSrc = src;
     },
     scroll : function(event){
       var scrollTop = null;
@@ -116,9 +118,8 @@ export default {
     padding: 0px;
   }
   .showArea{
-    margin-top: 60px;
-    margin-left: 180px;
-    padding-left: 20px;
+    /* margin-top: 60px; */
+    /* padding-left: 20px; */
     text-align: center;
     background-color: #fff;
     cursor: pointer;
@@ -130,47 +131,16 @@ export default {
   .picture img{
     position: relative;
   }
-  .left-bar-nav{
-    position: fixed;
-    bottom: 0px;
-    left: 0px;
-    top: 60px;
-    width: 180px;
-    padding: 0px;
-    background-color:#293c55;
-    overflow-y: hidden;
+  .chooseArea{
+    width: auto;
+    height: auto;
+    position : absolute;
+    top: 70px;
+    left: 20px;
     z-index: 2;
   }
-  .left-bar-nav:hover{
-    overflow-y: auto;
-  }
-  .left-bar-nav li:nth-child(1){
-    padding: 10px;
-    line-height: 30px !important;
-    color: #fff;
-    font-weight: bold;
-  }
-  .left-bar-nav li:nth-child(1):hover{
-    background-color: #293c55 !important;
-  }
-  .left-bar-nav li{
-    vertical-align: middle;
-    list-style-type: none;
-    color:#ccc;
-    height:56px;
-    line-height: 23px;
-    padding: 0px 10px 0px 10px;
-    font-size: 17px;
-    -webkit-transition:0.5s;
-    transition:0.5s;
-    cursor: pointer;
-  }
-  .left-bar-nav li.active{
-    background-color: #e43c59;
-    color:white;
-  }
-  .left-bar-nav li:hover{
-    background-color: #162436;
+  .chooseArea h3{
+    margin-bottom: 8px;
   }
 
 </style>

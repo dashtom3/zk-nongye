@@ -52,7 +52,7 @@ export default {
     }
   },
   created(){
-    // console.log(this.$route);
+
     this.option = this.options[this.$route.params.id-6];
     this.introduce = this.option.topic;
     this.currentPicture = this.option.data[0].name;
@@ -63,7 +63,7 @@ export default {
   methods : {
     clickChoose(val){
       // this.currentPicture = name;
-      console.log(this.option.)
+
       // this.currentPictureSrc = src;
     },
     scroll : function(event){

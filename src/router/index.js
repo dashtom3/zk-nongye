@@ -25,7 +25,7 @@ export default new Router({
       component: Middle
     },
     {
-      path: '/Weather/:id',
+      path: '/Weather/:id&:time',
       name: 'Weather',
       component: Weather
     },

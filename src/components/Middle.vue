@@ -25,9 +25,9 @@ export default {
       msg: 'Welcome to Your Vue.js App',
       // title:["农业气象数据","农业交易数据","农业产品质量","农业面源污染","农业实验基地","病虫害防治","农产品认证"],
       title:[{name:"农业气象数据",img:require('./../assets/main/qx.png'),target:"Weather",detail:"涵盖了一系列气象数据，包括温度、PM2.5、PM10等专题数据"},{name:"农业交易数据",img:require('./../assets/main/jy.png'),target:"Price",detail:"涵盖了江浙沪皖农业交易市场的菜品专题数据"},{name:"农业面源污染",img:require('./../assets/main/tr.png'),target:"Soil",detail:"涵盖了江浙沪皖部分城市监测的面源污染数据"},{name:"病虫害防治",img:require('./../assets/main/bch.png'),target:"Pest",detail:"涵盖了各类病虫害的监测分析数据"}],
-      allTopics:{'农业气象数据':[{id:'0',name:'江浙沪皖每日城市天气数据',img:require('./../assets/1.jpg'),time: this.$dtime(new Date().getTime()).format('YYYY-MM-DD')},
-        {id:'1',name:'江浙沪皖每日城市PM2.5数据',img:require('./../assets/2.jpg'),time:  this.$dtime(new Date().getTime()).format('YYYY-MM-DD')},
-        {id:"2",name:'江浙沪皖每日城市PM10数据',img:require('./../assets/2.jpg'),time:this.$dtime(new Date().getTime()).format('YYYY-MM-DD')},
+      allTopics:{'农业气象数据':[{id:'0',name:'江浙沪皖城市天气数据',img:require('./../assets/1.jpg'),time: this.$dtime(new Date().getTime()).format('YYYY-MM-DD')},
+        {id:'1',name:'江浙沪皖城市PM2.5数据',img:require('./../assets/2.jpg'),time:  this.$dtime(new Date().getTime()).format('YYYY-MM-DD')},
+        {id:"2",name:'江浙沪皖城市PM10数据',img:require('./../assets/2.jpg'),time:this.$dtime(new Date().getTime()).format('YYYY-MM-DD')},
         // {id:"3",name:'雨量流量关系图2',img:require('./../assets/4.jpg'),time:'2017-02-02'}
       ],'农业遥感数据':[{id:"4",name:'玫瑰饼图',img:require('./../assets/5.jpg'),time:'2017-02-03'},{id:"5",name:'收入支出图',img:require('./../assets/6.jpg'),time:'2017-02-04'}]
       ,'病虫害防治':[{id:'6',name:'2015年8月安徽市水稻病虫害',img:require('./../assets/Pest_disease/2015_8_r/distribute.png'),time:'2015-8'},
@@ -87,22 +87,32 @@ export default {
     }
   },
   created(){
-    this.topic = this.title[this.$route.params.id]
-    this.data = this.allTopics[this.topic.name]
+    this.init()
   },
   methods:{
+    init(){
+      this.topic = this.title[this.$route.params.id]
+      if(this.$route.params.id == 0){ // 气象数据
+        var tempRes = []
+        for(var i=0;i<7;i++){
+          var tempDate = this.$dtime(new Date().getTime()-1000*60*60*24*i).format('YYYY-MM-DD')
+           tempRes.push({id:'0',name:'江浙沪皖城市天气数据_'+tempDate,img:require('./../assets/1.jpg'),time: tempDate})
+           tempRes.push({id:'1',name:'江浙沪皖城市PM2.5数据_'+tempDate,img:require('./../assets/2.jpg'),time:  tempDate})
+           tempRes.push({id:"2",name:'江浙沪皖城市PM10数据_'+tempDate,img:require('./../assets/2.jpg'),time: tempDate})
+        }
+        this.allTopics['农业气象数据']=tempRes
+      }
+      this.data = this.allTopics[this.topic.name]
+    },
     clickDrawer(item){
       this.topic = item
       this.data = this.allTopics[this.topic.name]
     },
     clickTopic(item){
       console.log(this.topic.name)
-      let routeData = this.$router.resolve({name:this.topic.target,params:{id:item.id,name:item.name}});
+      let routeData = this.$router.resolve({name:this.topic.target,params:{id:item.id,name:item.name,time:item.time}});
       window.open(routeData.href, '_blank');
       // this.$router.push()
-    },
-    clickTheme(item){
-
     }
   }
 }
@@ -170,7 +180,7 @@ export default {
 .middle-title {
   width: 100%;
   color:#22a6f5;
-  font-size: 18px;
+  font-size: 16px;
   height: 50px;
   font-weight: bold;
   /* overflow: hidden;

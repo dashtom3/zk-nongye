@@ -1,5 +1,5 @@
 export default {
-    topic : '2017年7月安徽市水稻病虫害',
+    topic : '2017年7月安徽市水稻病虫害数据',
     data : [
       {id : 1,name : '水稻稻纵卷叶螟监测结果',imgSrc : require('./../../assets/Pest_disease/2017_7_r/cmm.png')},
       {id : 2,name : '水稻稻飞虱监测结果',imgSrc : require('./../../assets/Pest_disease/2017_7_r/phm.png')},

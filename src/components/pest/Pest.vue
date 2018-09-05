@@ -2,7 +2,7 @@
   <div class='root'>
     <div class='chooseArea'>
       <h3>{{option.topic}}</h3>
-      <el-select v-model="currentPicture" placeholder="请选择" @change='clickChoose()'>
+      <el-select v-model="currentPicture" placeholder="请选择" @change='clickChoose(currentPicture)'>
        <el-option
          v-for="item in option.data"
          :key="item.id"
@@ -62,9 +62,8 @@ export default {
   },
   methods : {
     clickChoose(val){
-      // this.currentPicture = name;
-
-      // this.currentPictureSrc = src;
+      this.currentPicture = this.option.data[val-1].name;
+      this.currentPictureSrc = this.option.data[val-1].imgSrc;
     },
     scroll : function(event){
       var scrollTop = null;

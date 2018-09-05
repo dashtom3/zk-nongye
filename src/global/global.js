@@ -1,6 +1,6 @@
 import axios from 'axios'
 export default{
-  baseUrl: 'http://localhost:8001/data/',
+  baseUrl: 'http://47.93.48.111:8001/data/',
   // baseUrl: 'http://localhost:6784/',
   success (obj, msg, url) {
     obj.$message({

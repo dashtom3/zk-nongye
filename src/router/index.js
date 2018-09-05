@@ -3,6 +3,7 @@ import Vuex from 'vuex'
 
 import Router from 'vue-router'
 import Main from '@/components/Main'
+import Middle from '@/components/Middle'
 import Weather from '@/components/weather/Weather'
 import Pest from '@/components/pest/Pest'
 import Soil from '@/components/soil/Soil'
@@ -17,6 +18,11 @@ export default new Router({
       path: '/',
       name: 'Main',
       component: Main
+    },
+    {
+      path: '/Middle/:id',
+      name: 'Middle',
+      component: Middle
     },
     {
       path: '/Weather/:id',

@@ -1,7 +1,9 @@
 <template>
   <div id="app">
     <div class="header">
-      <div class="title"><img src="./assets/title.png"></div>
+      <div class="title-img"><img src="./assets/main/logo.png"></div>
+      <span class="title-q">|</span>
+      <span class="title-main">农业生态大数据</span>
       <span class="time">{{time}}</span>
       <!-- <img src='./assets/1.jpg'> -->
     </div>
@@ -44,7 +46,7 @@ body{
 
 .header {
   width: 100%;
-  background-color: #0C1E32;
+  background-color: #fff;
   height: 60px;
   padding-left: 10px;
   position: fixed;
@@ -52,15 +54,33 @@ body{
   z-index: 2;
   /* padding-top: 20px; */
 }
-.title {
+.title-img img{
+  height:34px;
+  margin-top: 10px;
   float: left;
+  margin-left: 100px;
+  margin-right: 20px;
+}
+.title-main {
+  float: left;
+  color: #22a6f5;
+  margin-top: 18px;
+  font-size: 13px;
+  font-weight: bold;
 }
 .time {
-  color: #dddddd;
-  margin-left: 10px;
-  font-size: 12px;
-  margin-top: 24px;
+  color: #333;
+  margin-right: 100px;
+  font-size: 13px;
+  margin-top: 18px;
+  float: right;
+}
+.title-q {
+  color:#000;
   float: left;
+  margin-top: 8px;
+  font-size: 30px;
+  margin-right: 5px;
 }
 .left {
   /* float: left; */

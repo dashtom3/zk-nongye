@@ -60,7 +60,7 @@ export default {
   },
 
   created(){
-    this.priceArgs.place = this.$route.params.name;
+    this.priceArgs.place = this.$route.params.name.substr(0,this.$route.params.name.indexOf('六到八月份'));
     this.option.title.text = this.priceArgs.place
     this.getData();
     // this.drawLine();

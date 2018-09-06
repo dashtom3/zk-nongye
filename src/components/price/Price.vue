@@ -72,7 +72,8 @@ export default {
     drawLine(){
       // console.log(this.option)
       let myChart = this.$echarts.init(document.getElementById('myChart'))
-      myChart.setOption(this.option)
+      console.log(this.option.series);
+      myChart.setOption(this.option,true)
     },
     selectDate(){
       console.log(this.dateSelected)
@@ -96,7 +97,7 @@ export default {
     },
     getData(){
       this.$global.httpGetWithBaseUrl(this,'price/all',this.priceArgs).then(res=>{
-        console.log(res);
+        // console.log(res);
         this.analyseDate();
         this.analyseData(res.data);
         this.drawLine();
@@ -135,6 +136,7 @@ export default {
         })
         tempLegend.push(key)
         if(k<10){
+
           tempLegendSelected[key]= true
         }else {
           tempLegendSelected[key]=false
@@ -145,6 +147,7 @@ export default {
       // console.log(tempLegendSelected)
       this.option.legend.data = tempLegend
       this.option.legend.selected = tempLegendSelected
+      // console.log(this.data);
       this.option.series = this.data
     }
   }
